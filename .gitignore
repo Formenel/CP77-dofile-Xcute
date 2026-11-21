@@ -12,3 +12,4 @@ Thumbs.db
 
 # lokales Hilfsmittel, nicht ins Repo
 dev-link.cmd
+dist.conf
