@@ -11,6 +11,30 @@ local skripte = {}   -- Dateinamen, sortiert
 local status = ""    -- Ergebnis des letzten Laufs
 local sichtbar = false
 local cfg = { debug = true }
+local pruefen = true  -- beim ersten Anzeigen pro Spielstart Mindestgroesse pruefen
+local breite = 0      -- breitestes Element im aktuellen Frame (fensterrelativ)
+
+--- Rechten Rand des letzten Elements merken (nur waehrend der Pruefung).
+local function merke()
+	if not pruefen then return end
+	local x = ImGui.GetItemRectMax()
+	local wx = ImGui.GetWindowPos()
+	if x - wx > breite then breite = x - wx end
+end
+
+--- Am Frame-Ende: ist das Fenster kleiner als der Inhalt, vergroessern.
+--- Groessere Fenster bleiben, wie sie sind.
+local function mindestgroesse()
+	if not pruefen then return end
+	pruefen = false
+	local px = ImGui.GetCursorStartPos()       -- linker Innenabstand
+	local sollW = breite + px
+	local sollH = ImGui.GetCursorPosY() + px   -- Inhalt + unterer Abstand
+	local w, h = ImGui.GetWindowSize()
+	if w < sollW or h < sollH then
+		ImGui.SetWindowSize(math.max(w, sollW), math.max(h, sollH))
+	end
+end
 
 --- Einstellungen aus settings.lua lesen (fehlt die Datei: Standardwerte).
 local function cfgLaden()
@@ -59,11 +83,13 @@ registerForEvent("onOverlayClose", function() sichtbar = false end)
 registerForEvent("onDraw", function()
 	if not sichtbar then return end
 	if ImGui.Begin("dofile Xcute") then
+		breite = 0
 		if ImGui.Button("Neu einlesen") then scan() end
 		ImGui.SameLine()
 		ImGui.Text(#skripte .. " Skript(e)")
 		ImGui.SameLine()
 		local neu, geklickt = ImGui.Checkbox("Debug-Ausgabe", cfg.debug)
+		merke()
 		if geklickt then
 			cfg.debug = neu
 			cfgSpeichern()
@@ -74,11 +100,13 @@ registerForEvent("onDraw", function()
 		end
 		for _, name in ipairs(skripte) do
 			if ImGui.Button((name:gsub("%.lua$", ""))) then run(name) end
+			merke()
 		end
 		if status ~= "" and (cfg.debug or status:find(": FEHLER ", 1, true)) then
 			ImGui.Separator()
 			ImGui.TextWrapped(status)
 		end
+		mindestgroesse()
 	end
 	ImGui.End()
 end)

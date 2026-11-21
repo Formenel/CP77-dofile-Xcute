@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.2] - 2026-11-21
+
+- Beim ersten Anzeigen pro Spielstart wird das Fenster mindestens auf Inhaltsgroesse gebracht. Ist es schon groesser, bleibt es so.
+
 ## [0.1.1] - 2026-11-21
 
 - Haken "Debug-Ausgabe" im Fenster: schaltet die "ok"-Meldung im Fenster und in der CET-Konsole ab. Fehler werden weiterhin immer angezeigt.

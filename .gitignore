@@ -13,3 +13,7 @@ Thumbs.db
 # lokales Hilfsmittel, nicht ins Repo
 dev-link.cmd
 dist.conf
+
+# eigene Test-Skripte bleiben lokal, nur das Beispiel ist im Repo
+bin/x64/plugins/cyber_engine_tweaks/mods/dofile_xcute/scripts/*
+!bin/x64/plugins/cyber_engine_tweaks/mods/dofile_xcute/scripts/hello_xcute.lua
