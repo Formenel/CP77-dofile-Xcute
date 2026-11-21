@@ -1,34 +1,42 @@
 # dofile Xcute
 
-CET-Mod fuer Cyberpunk 2077: zeigt im CET-Overlay alle `*.lua`-Dateien aus einem Ordner als Buttons. Ein Klick fuehrt das Skript aus. Ersatz fuer die "dofiles"-Funktion des CET Mod Managers.
+CET mod for Cyberpunk 2077: lists every `*.lua` file from a folder as a button in the CET overlay. One click runs the script. A replacement for the "dofiles" feature of the CET Mod Manager.
 
-## Voraussetzung
+## Requirements
 
 - Cyber Engine Tweaks (CET)
 
-Keine RED4ext-DLL, kein `.asi` - reines Lua.
+No RED4ext DLL, no `.asi` - pure Lua.
 
 ## Installation
 
-- **Vortex:** `dofile_xcute-<version>.zip` installieren.
-- **Von Hand:** ZIP ins Spiel-Hauptverzeichnis (`Cyberpunk 2077\`) entpacken. Das Mod liegt dann unter:
+- **Vortex:** install `dofile_xcute-<version>.zip`.
+- **Manually:** extract the ZIP into the game's root folder (`Cyberpunk 2077\`). The mod then lives in:
 
 ```
 bin\x64\plugins\cyber_engine_tweaks\mods\dofile_xcute\
 ```
 
-## Benutzung
+## Usage
 
-1. Eigene `.lua` nach `mods\dofile_xcute\scripts\` legen.
-2. Im Spiel das CET-Overlay oeffnen. Das Fenster "dofile Xcute" listet die Skripte.
-3. Button klicken. Ergebnis steht unten im Fenster und in der CET-Konsole.
+1. Put your own `.lua` files into `mods\dofile_xcute\scripts\`.
+2. Open the CET overlay in game. The "dofile Xcute" window lists the scripts.
+3. Click a button. The result is shown at the bottom of the window and in the CET console.
 
-"Debug-Ausgabe" schaltet die "ok"-Meldungen in Fenster und Konsole ab; Fehler werden immer angezeigt. Die Einstellung landet in `settings.lua` im Mod-Ordner.
+"Debug output" turns off the "ok" messages in the window and the console; errors are always shown.
 
-"Neu einlesen" holt neu abgelegte Dateien, ohne CET neu zu laden. Beim Oeffnen des Overlays wird ohnehin neu eingelesen.
+"Rescan" picks up newly added files without reloading CET. The folder is also rescanned every time the overlay opens.
 
-## Grenzen (durch CET vorgegeben)
+Settings (debug output, language) are stored in `settings.lua` in the mod folder.
 
-- CET sperrt `dofile`, `dir` und `io` auf den eigenen Mod-Ordner. Skripte muessen deshalb in `mods\dofile_xcute\scripts\` liegen, nicht in `cyber_engine_tweaks\scripts\`.
-- Die Skripte laufen in der Umgebung dieses Mods: sie sehen `Game`, `GetSingleton` usw., teilen sich aber auch globale Variablen untereinander.
-- Unterordner werden nicht durchsucht.
+## Languages
+
+English is built in. Further languages are JSON files in `mods\dofile_xcute\lang\` and appear in the "Language" dropdown. Missing keys fall back to English.
+
+To add a language, copy `en.json` to e.g. `fr.json` and translate the values. `_name` is the name shown in the dropdown. Keep the `%s` and `%d` placeholders.
+
+## Limits (set by CET)
+
+- CET restricts `dofile`, `dir` and `io` to the mod's own folder. Scripts must therefore live in `mods\dofile_xcute\scripts\`, not in `cyber_engine_tweaks\scripts\`.
+- Scripts run in this mod's environment: they see `Game`, `GetSingleton` etc., but also share global variables with each other.
+- Subfolders are not scanned.

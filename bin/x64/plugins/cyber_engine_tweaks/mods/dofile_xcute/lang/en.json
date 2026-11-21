@@ -1,0 +1,10 @@
+{
+	"_name": "English",
+	"rescan": "Rescan",
+	"count": "%d script(s)",
+	"debug": "Debug output",
+	"language": "Language",
+	"none": "No *.lua in mods/dofile_xcute/%s/",
+	"ok": "%s: ok",
+	"error": "%s: ERROR %s"
+}
