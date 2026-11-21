@@ -1,5 +1,5 @@
 @echo off
-rem dev-link.cmd - haengt den Mod aus source\ per Junction ins Spiel.
+rem dev-link.cmd - haengt das Mod aus source\ per Junction ins Spiel.
 rem Spielpfad bei Bedarf anpassen.
 setlocal
 set "GAME=D:\SteamLibrary\steamapps\common\Cyberpunk 2077"

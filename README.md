@@ -11,7 +11,7 @@ Keine RED4ext-DLL, kein `.asi` - reines Lua.
 ## Installation
 
 - **Vortex:** `dofile_xcute-<version>.zip` installieren.
-- **Von Hand:** ZIP ins Spiel-Hauptverzeichnis (`Cyberpunk 2077\`) entpacken. Der Mod liegt dann unter:
+- **Von Hand:** ZIP ins Spiel-Hauptverzeichnis (`Cyberpunk 2077\`) entpacken. Das Mod liegt dann unter:
 
 ```
 bin\x64\plugins\cyber_engine_tweaks\mods\dofile_xcute\
@@ -30,8 +30,3 @@ bin\x64\plugins\cyber_engine_tweaks\mods\dofile_xcute\
 - CET sperrt `dofile`, `dir` und `io` auf den eigenen Mod-Ordner. Skripte muessen deshalb in `mods\dofile_xcute\scripts\` liegen, nicht in `cyber_engine_tweaks\scripts\`.
 - Die Skripte laufen in der Umgebung dieses Mods: sie sehen `Game`, `GetSingleton` usw., teilen sich aber auch globale Variablen untereinander.
 - Unterordner werden nicht durchsucht.
-
-## Entwicklung
-
-- Quelle: `source/`, Auslieferung: `dist/dofile_xcute-<version>.zip` per `git todist` (ZIP-Modus, siehe `dist.conf`).
-- `dev-link.cmd` haengt den Mod-Ordner aus `source/` per Junction ins Spiel, damit Aenderungen ohne Kopieren im Spiel landen.

@@ -8,3 +8,6 @@ db.sqlite3
 
 Thumbs.db
 .DS_Store
+
+# lokales Hilfsmittel, nicht ins Repo
+dev-link.cmd
