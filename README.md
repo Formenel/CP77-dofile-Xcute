@@ -23,6 +23,8 @@ bin\x64\plugins\cyber_engine_tweaks\mods\dofile_xcute\
 2. Im Spiel das CET-Overlay oeffnen. Das Fenster "dofile Xcute" listet die Skripte.
 3. Button klicken. Ergebnis steht unten im Fenster und in der CET-Konsole.
 
+"Debug-Ausgabe" schaltet die "ok"-Meldungen in Fenster und Konsole ab; Fehler werden immer angezeigt. Die Einstellung landet in `settings.lua` im Mod-Ordner.
+
 "Neu einlesen" holt neu abgelegte Dateien, ohne CET neu zu laden. Beim Oeffnen des Overlays wird ohnehin neu eingelesen.
 
 ## Grenzen (durch CET vorgegeben)

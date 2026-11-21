@@ -5,6 +5,7 @@ ftp.conf
 # von CET zur Laufzeit im Mod-Ordner erzeugt
 *.log
 db.sqlite3
+bin/**/dofile_xcute/settings.lua
 
 Thumbs.db
 .DS_Store
