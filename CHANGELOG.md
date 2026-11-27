@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0] - 2026-11-24
+
+- Built-in editor for scripts: "New" in the main window, pencil button next to each script.
+- Editor: save, save & run, rename (via the file name field), delete (with confirmation), paste clipboard (replaces the text, with confirmation if not empty).
+- Saving checks the syntax without running the script. Scripts are saved even with syntax errors, so work in progress is not lost; the error is shown in the editor.
+- Closing with unsaved changes asks first.
+
 ## [0.2.0] - 2026-11-21
 
 - UI, README, changelog and code comments in English.

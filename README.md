@@ -29,6 +29,18 @@ bin\x64\plugins\cyber_engine_tweaks\mods\dofile_xcute\
 
 Settings (debug output, language) are stored in `settings.lua` in the mod folder.
 
+## Editor
+
+"New" in the main window opens an empty script, the pencil button next to a script opens it for editing.
+
+- **Save** writes the file and checks its syntax (without running it). With a syntax error the file is saved anyway and the error is shown, so nothing gets lost.
+- **Save & run** saves and runs the script right away.
+- **Rename** by changing the file name and saving.
+- **Paste clipboard** replaces the text with the clipboard content, e.g. a script copied from a website. Ctrl+C / Ctrl+V / Ctrl+Z work inside the text field as usual.
+- **Delete** removes the script after a confirmation.
+
+The editor only works inside `mods\dofile_xcute\scripts\` - CET does not allow access anywhere else. It is a plain text field: no syntax highlighting, no line numbers.
+
 ## Languages
 
 English is built in. Further languages are JSON files in `mods\dofile_xcute\lang\` and appear in the "Language" dropdown. Missing keys fall back to English.
